@@ -27,7 +27,7 @@ body {
 }
 #logo {
 	display: inline-block;
-	background-image: url(https://i.imgur.com/jIg9j4o.png);
+	background-image: url(../logo/gemmi_400.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 50%;
@@ -797,7 +797,7 @@ body {
   font-size: 35px;
   width: 70px;
   height: 70px;
-  background-image: url(https://i.imgur.com/dtm2c02.png);
+  background-image: url(../coins/electric_coin_back.png);
   background-size: 250%;
   background-repeat: no-repeat;
   background-position: center;
@@ -820,7 +820,7 @@ body {
 	left:0;
 	right:0;
 	margin: 0 auto;
-	background-image:url(https://i.imgur.com/aWpxUdE.png);
+	background-image:url(../coins/mj_sig.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size:cover;
@@ -861,6 +861,12 @@ body {
 	color: black;
 	text-align: center;
 	text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+	background: -webkit-linear-gradient(to right, magenta , fuchsia, turquoise, black);
+	background: -o-linear-gradient(to right, magenta , fuchsia, turquoise, black);
+	background: -moz-linear-gradient(to right, magenta , fuchsia, turquoise, black);
+	background: linear-gradient(to right, magenta , fuchsia, turquoise, black);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .mobile-send-img {

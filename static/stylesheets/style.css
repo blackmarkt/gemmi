@@ -56,13 +56,13 @@ body {
 .create_your_coin_container {
 	position: relative;
 	margin: 0 auto;
-	margin-top:7rem;
+	margin-top:3.5rem;
 	text-align: center;
 	font-family: 'Alata', sans-serif;
 	text-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 .create_your_coin_container h1 {
-	font-size: 4rem;
+	font-size: 4.5rem;
 	background: -webkit-linear-gradient(to right, magenta , fuchsia, violet, black);
 	background: -o-linear-gradient(to right, magenta , fuchsia, violet, black);
 	background: -moz-linear-gradient(to right, magenta , fuchsia, violet, black);
@@ -97,6 +97,7 @@ body {
 }
  .coin {
 	 position: relative;
+	 margin-top:2rem;
 	 width: 200px;
 	 height: 200px;
 	 -webkit-transform-style: preserve-3d;
@@ -883,5 +884,5 @@ body {
 
 .img-phone.white {
 	display: inline-block;
-	width: 234px;
+	width: 232px;
 }

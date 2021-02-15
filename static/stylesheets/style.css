@@ -76,6 +76,10 @@
 		margin-left:0!important;
 		width: 90%!important;
 	}
+	.img-blockchain {
+		top: 35%!important;
+		width: 85%!important;
+	}
 	footer {
 		height: 100px!important
 	}
@@ -859,6 +863,7 @@ body {
   margin: 0 auto;
   text-align: center;
   font-family: 'ethnocentric', sans-serif;
+  z-index:2;
 }
 
 .title-container h1 {
@@ -1027,6 +1032,21 @@ body {
 	border-radius: 28px
 }
 
+.img-blockchain {
+	position: absolute;
+	top: 10%;
+	left: 0;
+	right: 0;
+	width: 60%;
+	margin: 0 auto;
+	max-width:600px;
+	border-radius: 28px;
+}
+
+.blockchain-container {
+	margin: 0 auto;
+	z-index:0;
+}
 footer {
 	width: 100%;
 	height: 200px;

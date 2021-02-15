@@ -876,10 +876,12 @@ body {
 	width: 520px;
 	margin-top:2rem;
 	margin: 0 auto;
+	border-radius: 20px;
 }
 
 .img-phone {
 	width: 240px;
+	border-radius: 10px;
 }
 
 .img-phone.white {

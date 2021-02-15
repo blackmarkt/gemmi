@@ -954,6 +954,20 @@ body {
 	border-radius: 20px;
 }
 
+.desktop-dashboard-container {
+	display: inline-block;
+	width: 65%;
+	max-width: 700px;
+	margin: 0 auto;
+	margin-top:1rem;
+	border-radius: 20px;
+}
+
+.desktop-dashboard {
+	position: relative;
+	width: 100%;
+}
+
 .img-phone {
 	width: 240px;
 	border-radius: 10px;
@@ -962,4 +976,8 @@ body {
 .img-phone.white {
 	display: inline-block;
 	width: 232px;
+}
+
+.img-desktop {
+	width: 100%;
 }

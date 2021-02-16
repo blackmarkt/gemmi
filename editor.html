@@ -149,7 +149,7 @@
 		// 	checkScale();
 		// })
 
-		var ratio = 0.4
+		var ratio = 0.3
 		function checkScale(e) {
 			var canWidth = $('#c1').width();
 			var canHeight = $('#c1').height();
@@ -157,7 +157,7 @@
 			var adjStroke = Math.floor(circle.strokeWidth * ratio);
 			circle.set("radius", adjCircle);
 			circle.set("strokeWidth", adjStroke);
-			console.log(canWidth, canHeight, adjCircle);
+			console.log(ratio, canWidth, canHeight, adjCircle);
 		}
 
 		var resizeCanvas = function() {

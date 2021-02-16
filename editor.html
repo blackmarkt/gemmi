@@ -43,8 +43,8 @@
 			text-shadow: 0 4px 8px rgba(0,0,0,0.5);
 			height: 50%;
 			width: 40%;
-			min-width: 300px;
-			max-width: 300px;
+			min-width: 260px;
+			min-height: 300px;
 			max-width: 500px;
     		max-height: 500px;
     	}
@@ -81,14 +81,17 @@
 		$(document).ready(function () {
 			resizeCanvas();
 			var canvas = new fabric.Canvas('c1');
-			canvas.add(new fabric.Circle({ 
+			var circle = new fabric.Circle({ 
 				radius: 100, 
 				fill: '#FFD700',
 				strokeWidth: 20,
 				stroke: "rgb(218,165,32)",
 				opacity: 0.7,
-				top: 150, 
-				left: 150 }));
+				top: 150
+			});
+			canvas.add(circle);
+			canvas.centerObject(circle);
+			canvas.renderAll();
 		});
 
 		var resizeCanvas = function() {

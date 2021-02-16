@@ -159,126 +159,123 @@
 		<h1>Design Your Crypto Coin</h1>
 		<div class="canvas_container">
 		   <canvas id="c1" width="500" height="500"></canvas>
-			<script>
-				var canvas, circle;
-
-				$(document).ready(function () {
-					resizeCanvas();
-					canvas = new fabric.Canvas('c1');
-					circle = new fabric.Circle({ 
-						radius: 100, 
-						fill: '#FFD700',
-						strokeWidth: 20,
-						stroke: "rgb(218,165,32)",
-						opacity: 0.7,
-						top: 150
-					});
-					canvas.add(circle);
-					checkScale();
-					canvas.centerObject(circle);
-					canvas.renderAll();
-					canvas.on('object:moving', function (e) {
-					        var obj = e.target;
-					         // if object is too big ignore
-					        if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
-					            return;
-					        }        
-					        obj.setCoords();        
-					        // top-left  corner
-					        if(obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0){
-					            obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top);
-					            obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left);
-					        }
-					        // bot-right corner
-					        if(obj.getBoundingRect().top+obj.getBoundingRect().height  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width  > obj.canvas.width){
-					            obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
-					            obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
-					        }
-					});
-
-					    var left1 = 0;
-					    var top1 = 0 ;
-					    var scale1x = 0 ;    
-					    var scale1y = 0 ;    
-					    var width1 = 0 ;    
-					    var height1 = 0 ;
-					  canvas.on('object:scaling', function (e){
-					    var obj = e.target;
-					    obj.setCoords();
-					    var brNew = obj.getBoundingRect();
-					    
-					    if (((brNew.width+brNew.left)>=obj.canvas.width) || ((brNew.height+brNew.top)>=obj.canvas.height) || ((brNew.left<0) || (brNew.top<0))) {
-					    obj.left = left1;
-					    obj.top=top1;
-					    obj.scaleX=scale1x;
-					    obj.scaleY=scale1y;
-					    obj.width=width1;
-					    obj.height=height1;
-					  }
-					    else{    
-					      left1 =obj.left;
-					      top1 =obj.top;
-					      scale1x = obj.scaleX;
-					      scale1y=obj.scaleY;
-					      width1=obj.width;
-					      height1=obj.height;
-					    }
-					 });
-				});
-
-				// $(window).on('resize', function() {
-				// 	resizeCanvas();
-				// 	checkScale();
-				// })
-
-				var ratio = 0.3
-				function checkScale(e) {
-					var canWidth = $('#c1').width();
-					var canHeight = $('#c1').height();
-					var adjCircle = Math.floor(canWidth * ratio);
-					var adjStroke = Math.floor(circle.strokeWidth * ratio);
-					circle.set("radius", adjCircle);
-					circle.set("strokeWidth", adjStroke);
-					console.log(ratio, canWidth, canHeight, adjCircle);
-				}
-
-				var resizeCanvas = function() {
-					var canvasId = $('#c1');
-					canvasId.attr('width', $('.canvas_container').width() ); //max width
-					canvasId.attr('height', $('.canvas_container').height() ); //max height
-				}
-
-				var toggle = document.getElementById('toggle');
-				var lightSwitch = document.getElementById('lightSwitch');
-				var toggleState = false;
-
-				function backgroundToggle() {
-					if (toggleState === false) {
-						canvas.backgroundColor = "black";
-						toggleState = true
-					} else {
-						canvas.backgroundColor = "white";
-						toggleState = false
-					}
-					// $('#c1').css({'background-color':'black'});
-					// canvasId.attr('background', $('.canvas_container').width() );
-					// document.body.classList.toggle('off');
-					lightSwitch.classList.toggle('move');
-					toggle.classList.toggle('toggle-border');
-				}
-				toggle.onclick = backgroundToggle;
-			</script>
-			<div class="background_toggle_switch_container">
+		   <div class="background_toggle_switch_container">
 			  <div id="toggle" class="toggle">
 			    <input type="checkbox" class="check">
 			      <div id="lightSwitch" class="switch lightSwitch"></div>
 			      <div class="track lightTrack"></div>
 			  </div>
 			</div>
-			<!-- <script>
-				
-			</script> -->
 		</div>
 	</div>
+	<script>
+		var canvas, circle;
+
+		$(document).ready(function () {
+			resizeCanvas();
+			canvas = new fabric.Canvas('c1');
+			circle = new fabric.Circle({ 
+				radius: 100, 
+				fill: '#FFD700',
+				strokeWidth: 20,
+				stroke: "rgb(218,165,32)",
+				opacity: 0.7,
+				top: 150
+			});
+			canvas.add(circle);
+			checkScale();
+			canvas.centerObject(circle);
+			canvas.renderAll();
+			canvas.on('object:moving', function (e) {
+			        var obj = e.target;
+			         // if object is too big ignore
+			        if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
+			            return;
+			        }        
+			        obj.setCoords();        
+			        // top-left  corner
+			        if(obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0){
+			            obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top);
+			            obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left);
+			        }
+			        // bot-right corner
+			        if(obj.getBoundingRect().top+obj.getBoundingRect().height  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width  > obj.canvas.width){
+			            obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
+			            obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
+			        }
+			});
+
+			    var left1 = 0;
+			    var top1 = 0 ;
+			    var scale1x = 0 ;    
+			    var scale1y = 0 ;    
+			    var width1 = 0 ;    
+			    var height1 = 0 ;
+			  canvas.on('object:scaling', function (e){
+			    var obj = e.target;
+			    obj.setCoords();
+			    var brNew = obj.getBoundingRect();
+			    
+			    if (((brNew.width+brNew.left)>=obj.canvas.width) || ((brNew.height+brNew.top)>=obj.canvas.height) || ((brNew.left<0) || (brNew.top<0))) {
+			    obj.left = left1;
+			    obj.top=top1;
+			    obj.scaleX=scale1x;
+			    obj.scaleY=scale1y;
+			    obj.width=width1;
+			    obj.height=height1;
+			  }
+			    else{    
+			      left1 =obj.left;
+			      top1 =obj.top;
+			      scale1x = obj.scaleX;
+			      scale1y=obj.scaleY;
+			      width1=obj.width;
+			      height1=obj.height;
+			    }
+			 });
+		});
+
+		// $(window).on('resize', function() {
+		// 	resizeCanvas();
+		// 	checkScale();
+		// })
+
+		var ratio = 0.3
+		function checkScale(e) {
+			var canWidth = $('#c1').width();
+			var canHeight = $('#c1').height();
+			var adjCircle = Math.floor(canWidth * ratio);
+			var adjStroke = Math.floor(circle.strokeWidth * ratio);
+			circle.set("radius", adjCircle);
+			circle.set("strokeWidth", adjStroke);
+			console.log(ratio, canWidth, canHeight, adjCircle);
+		}
+
+		var resizeCanvas = function() {
+			var canvasId = $('#c1');
+			canvasId.attr('width', $('.canvas_container').width() ); //max width
+			canvasId.attr('height', $('.canvas_container').height() ); //max height
+		}
+
+		var toggle = document.getElementById('toggle');
+		var lightSwitch = document.getElementById('lightSwitch');
+		var toggleState = false;
+
+		function backgroundToggle() {
+			if (toggleState === false) {
+				canvas.backgroundColor = "black";
+				toggleState = true
+			} else {
+				canvas.backgroundColor = "white";
+				toggleState = false
+			}
+			// $('#c1').css({'background-color':'black'});
+			// canvasId.attr('background', $('.canvas_container').width() );
+			// document.body.classList.toggle('off');
+			lightSwitch.classList.toggle('move');
+			toggle.classList.toggle('toggle-border');
+		}
+		toggle.onclick = backgroundToggle;
+	</script>
   </body>
 </html>

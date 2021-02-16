@@ -59,6 +59,7 @@
     	}
     	.off{
 		  background-color: #000;
+		  border-radius: 10px;
 		}
     	.dark{
 		  background-color:black;
@@ -257,9 +258,17 @@
 			<script>
 				var toggle = document.getElementById('toggle');
 				var lightSwitch = document.getElementById('lightSwitch');
+				var toggleState = false;
 
 				function backgroundToggle() {
-					$('#c1').css({'background-color':'black'});
+					if (toggleState === false) {
+						canvas.backgroundColor="black";
+						toggleState = true
+					} else {
+						canvas.backgroundColor="white";
+						toggleState = false
+					}
+					// $('#c1').css({'background-color':'black'});
 					// canvasId.attr('background', $('.canvas_container').width() );
 					// document.body.classList.toggle('off');
 					lightSwitch.classList.toggle('move');

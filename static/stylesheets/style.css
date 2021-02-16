@@ -98,6 +98,7 @@ body {
 	overflow-y: scroll;
 	overflow-x:hidden;
 	margin: 0;
+	font-family: 'Alata', sans-serif;
 }
 .header {
 	position: relative;

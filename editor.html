@@ -247,25 +247,17 @@
 					canvasId.attr('width', $('.canvas_container').width() ); //max width
 					canvasId.attr('height', $('.canvas_container').height() ); //max height
 				}
-			</script>
-			<div class="background_toggle_switch_container">
-			  <div id="toggle" class="toggle">
-			    <input type="checkbox" class="check">
-			      <div id="lightSwitch" class="switch lightSwitch"></div>
-			      <div class="track lightTrack"></div>
-			  </div>
-			</div>
-			<script>
+
 				var toggle = document.getElementById('toggle');
 				var lightSwitch = document.getElementById('lightSwitch');
 				var toggleState = false;
 
 				function backgroundToggle() {
 					if (toggleState === false) {
-						canvas.backgroundColor="black";
+						canvas.backgroundColor = "black";
 						toggleState = true
 					} else {
-						canvas.backgroundColor="white";
+						canvas.backgroundColor = "white";
 						toggleState = false
 					}
 					// $('#c1').css({'background-color':'black'});
@@ -276,6 +268,16 @@
 				}
 				toggle.onclick = backgroundToggle;
 			</script>
+			<div class="background_toggle_switch_container">
+			  <div id="toggle" class="toggle">
+			    <input type="checkbox" class="check">
+			      <div id="lightSwitch" class="switch lightSwitch"></div>
+			      <div class="track lightTrack"></div>
+			  </div>
+			</div>
+			<!-- <script>
+				
+			</script> -->
 		</div>
 	</div>
   </body>

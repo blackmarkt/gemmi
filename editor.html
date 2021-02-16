@@ -263,10 +263,10 @@
 
 		function backgroundToggle() {
 			if (toggleState === false) {
-				canvas.backgroundColor = "black";
+				$('#c1').addClass('off');
 				toggleState = true
 			} else {
-				canvas.backgroundColor = "white";
+				$('#c1').removeClass('off');
 				toggleState = false
 			}
 			// $('#c1').css({'background-color':'black'});

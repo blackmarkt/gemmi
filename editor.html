@@ -97,7 +97,12 @@
 			canvas.renderAll();
 		});
 
-		var ratio = 0.3
+		$(window).on('resize', function() {
+			resizeCanvas();
+			checkScale();
+		})
+
+		var ratio = 0.45
 		function checkScale(e) {
 			var canWidth = $('#c1').width();
 			var canHeight = $('#c1').height();

@@ -183,18 +183,19 @@
 	</div>
 	<script>
 		var canvas, circle;
+		var shadowYellow, shadowBlack; 
 
 		$(document).ready(function () {
 			resizeCanvas();
 			canvas = new fabric.Canvas('c1');
-			var shadowYellow = new fabric.Shadow({ 
+			shadowYellow = new fabric.Shadow({ 
 			    color: 'yellow', 
 			    blur: 50,
 			    // offsetX: 10,
 			    // offsetY: 10,
 			    // opacity: 0.5,
 			});
-			var shadowBlack = new fabric.Shadow({ 
+			shadowBlack = new fabric.Shadow({ 
 			    color: 'black', 
 			    blur: 20,
 			    // offsetX: 10,
@@ -289,6 +290,13 @@
 		var lightSwitch = document.getElementById('lightSwitch');
 		var toggleState = false;
 
+		function getActiveShadow(name) {
+		    var object = canvas.getActiveObject();
+		    if (!object) return '';
+
+		    return object[name] || '';
+		}
+
 		function setActiveShadow(name, value) {
 		    var object = canvas.getActiveObject();
 		    if (!object) return;
@@ -328,15 +336,15 @@
 		function backgroundToggle() {
 			if (toggleState === false) {
 				$('#c1').addClass('off');
-				shadowify("#000000");
-				setShadowBlur();
-				// circle.set("shadow", 'shadowBlack');
+				// shadowify("#000000");
+				// setShadowBlur();
+				circle.set("shadow", shadowBlack);
 				toggleState = true
 			} else {
 				$('#c1').removeClass('off');
-				shadowify("#FFFF00");
-				setShadowBlur();
-				// circle.set("shadow", 'shadowYellow');
+				// shadowify("#FFFF00");
+				// setShadowBlur();
+				circle.set("shadow", shadowYellow);
 				toggleState = false
 			}
 			// $('#c1').css({'background-color':'black'});

@@ -358,7 +358,7 @@
 		function checkScale(e) {
 			var canWidth = $('#c1').width();
 			var canHeight = $('#c1').height();
-			var adjCircle = Math.floor(canWidth * ratio);
+			var adjCircle = Math.floor(canHeight * ratio);
 			var adjStroke = Math.floor(circle.strokeWidth * ratio);
 			circle.set("radius", adjCircle);
 			circle.set("strokeWidth", adjStroke);

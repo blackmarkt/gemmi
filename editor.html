@@ -69,10 +69,10 @@
     	.editor_container h1 {
     		text-align: center;
     		text-shadow: 0 4px 8px rgba(0,0,0,0.5);
-			background: -webkit-linear-gradient(to right, magenta , fuchsia, violet, black);
-			background: -o-linear-gradient(to right, magenta , fuchsia, violet, black);
-			background: -moz-linear-gradient(to right, magenta , fuchsia, violet, black);
-			background: linear-gradient(to right, magenta , fuchsia, violet, black);
+			background: -webkit-linear-gradient(to right, red , orange, red, black);
+			background: -o-linear-gradient(to right, red , orange, red, black);
+			background: -moz-linear-gradient(to right, red , orange, red, black);
+			background: linear-gradient(to right, red , orange, red, black);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
     	}
@@ -342,6 +342,11 @@
 			<div id="logo"></div>
 			<div class="co_name">Gemmi</div>
 		</div>
+		<script>
+			var goHomePage = function(e) {
+				window.location.href = "https://blackmarkt.github.io/gemmi/index.html";
+			}
+		</script>
 		<div class="header_right">
 			<div class="contact_career_txt">Careers</div>
 			<div class="contact_career_txt">Contact</div>
@@ -395,6 +400,11 @@
 
 					$('#shape_circle').click(function() {
 						createCircle();
+						$('.shape_selection_container').removeClass('selection_visible').delay(300).fadeOut();
+					});
+
+					$('#shape_square').click(function() {
+						createSquare();
 						$('.shape_selection_container').removeClass('selection_visible').delay(300).fadeOut();
 					});
 				</script>
@@ -546,6 +556,23 @@
 			canvas.add(newCircle);
 			checkScale(newCircle);
 			canvas.centerObject(newCircle);
+			canvas.renderAll();
+		}
+
+		var createSquare = function() {
+			newSquare = new fabric.Rect({ 
+				width: 100, 
+				height: 100,
+				fill: '#800080	',
+				strokeWidth: 20,
+				stroke: "rgb(255,0,255)",
+				opacity: 0.7,
+				top: 150,
+				shadow: shadowBlack
+			});
+			canvas.add(newSquare);
+			checkScale(newSquare);
+			canvas.centerObject(newSquare);
 			canvas.renderAll();
 		}
 

@@ -110,6 +110,7 @@
     		max-height: 500px;*/
     	}
     	.btn_toolbar {
+    		position: relative;
     		display: inline-block;
     		margin: 0 1rem;
     		cursor: pointer;
@@ -246,25 +247,38 @@
 		}
 		.shape_selection_container {
 			position: absolute;
-			top: -50%;
-			left: 0;
-			right: 0;
+			visibility: hidden;
+			opacity:0;
+			top: -180%;
+			left: -30%;
+			/*right: 0;*/
 			margin: 0 auto;
 			width: fit-content;
 			height: fit-content;
 			display: none;
+			transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+			-webkit-transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+		}
+		.selection_visible {
+			visibility: visible;
+			opacity:1;
+			transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+			-webkit-transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
 		}
 		.shape_selection_grid {
 			display: grid;
-			grid-template-columns: auto;
+			grid-template-columns: auto auto;
 			background:none;
-			border:none;
+			border:3px solid black;
+			border-radius:10px;
+		}
+		.grid_item {
+			border:3px solid black;
+			padding: 0.2rem 0.5rem;
 		}
 		.far {
-			font-size:2.4rem;
+			font-size:3rem;
 			text-align: center;
-			padding: 0.2rem 0.5rem;
-
 		}
     </style>
   </head>
@@ -290,14 +304,22 @@
 					<i class="fas fa-shapes"></i>
 					<div class="shape_selection_container">
 						<div class="shape_selection_grid">
-							<i id="shape_circle" class="far fa-circle grid_item"></i>
-							<i id="shape_square" class="far fa-square grid_item"></i>
+							<div class="grid_item">
+								<i id="shape_circle" class="far fa-circle"></i>
+							</div>
+							<div class="grid_item">
+								<i id="shape_square" class="far fa-square"></i>
+							</div>
 						</div>
 					</div>	
 				</div>
 				<script>
 					$('#btn_shapes').click(function() {
-						$('.shape_selection_container').fadeIn('slow');
+						if ($('.shape_selection_container').css('display') === 'none') {
+							$('.shape_selection_container').fadeIn().toggleClass('selection_visible')
+						} else {
+							$('.shape_selection_container').toggleClass('selection_visible').delay(500).fadeOut();
+						}
 					});
 				</script>
 				<div id="btn_color_palette" class="btn_toolbar">

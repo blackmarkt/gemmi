@@ -289,6 +289,20 @@
 		var lightSwitch = document.getElementById('lightSwitch');
 		var toggleState = false;
 
+		function setActiveShadow(name, value) {
+		    var object = canvas.getActiveObject();
+		    if (!object) return;
+		    if(object.shadow)
+		    	object.shadow[name] = value;
+		    else{
+		    	var ob = {};
+		    	ob[name] = value;
+		    	object.setShadow(ob);
+		    }
+		    
+		    object.setCoords();
+		}
+
 		var shadowify = function (colorCode) {
 		    var obj = canvas.getActiveObject();
 		    if (!obj) return;
@@ -306,15 +320,22 @@
 		    canvas.renderAll();
 		};
 
+		var setShadowBlur = function () {
+		    setActiveShadow('blur', 20);
+		    canvas.renderAll();
+		};
+
 		function backgroundToggle() {
 			if (toggleState === false) {
 				$('#c1').addClass('off');
 				shadowify("#000000");
+				setShadowBlur();
 				// circle.set("shadow", 'shadowBlack');
 				toggleState = true
 			} else {
 				$('#c1').removeClass('off');
 				shadowify("#FFFF00");
+				setShadowBlur();
 				// circle.set("shadow", 'shadowYellow');
 				toggleState = false
 			}

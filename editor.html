@@ -308,10 +308,10 @@
 		}
 		.obj_delete_pop_container h2 {
 			font-size:1rem;
-			background: -webkit-linear-gradient(to right, red , orange, yellow, red);
-			background: -o-linear-gradient(to right, red , orange, yellow, red);
-			background: -moz-linear-gradient(to right, red , orange, yellow, red);
-			background: linear-gradient(to right, red , orange, yellow, red);
+			background: -webkit-linear-gradient(to right, red , orange, purple, red);
+			background: -o-linear-gradient(to right, red , orange, purple, red);
+			background: -moz-linear-gradient(to right, red , orange, purple, red);
+			background: linear-gradient(to right, red , orange, purple, red);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 		}
@@ -427,6 +427,11 @@
 				<div id="btn_signature" class="btn_toolbar">
 					<i class="fas fa-magic"></i>
 				</div>
+				<script>
+					$('#btn_magic').click(function() {
+						applyGradient();
+					})
+				</script>
 				<div class="background_toggle_switch_container" class="btn_toolbar">
 				  <div id="toggle" class="toggle">
 				    <input type="checkbox" class="check">
@@ -672,9 +677,19 @@
 		}
 		toggle.onclick = backgroundToggle;
 
-		function deleteItemPopup() {
-
-		}
+		function applyGradient(color1, color2) {
+			var selection = canvas.getActiveObject();
+			var gradient = new fabric.Gradient({
+			    type: 'linear',
+			    gradientUnits: 'percentage',
+			    coords: { x1: 0, y1: 0, x2: 1, y2: 0 },
+			    colorStops:[
+			      { offset: 0, color: color1 },
+			      { offset: 1, color: color2}
+			    ]
+		  });
+		  selection.set('fill', gradient);
+		} 
 
 		function deleteSelectedObjectsFromCanvas(){
 		    var selection = canvas.getActiveObject();

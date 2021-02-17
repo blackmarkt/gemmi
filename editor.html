@@ -39,12 +39,20 @@
 	    	.btn_toolbar.shapes {
 	    		margin-left:-4rem!important;
 	    	}
-    		.fas {
+    		.fas, .far {
 				font-size:2rem!important;
 			}
 			.toggle {
 				transform: scale(0.7)!important;
 				left: -35%!important;
+			}
+			.shape_selection_container {
+				top:-220%!important;
+				left: 20%!important;
+			}
+			.grid_item {
+				border:2px solid black!important;
+				padding: 0.2rem 5rem!important;
 			}
     	}
     	.editor_container {
@@ -119,12 +127,13 @@
     	.btn_toolbar.shapes {
     		margin-left:-4rem;
     	}
-    	.fas {
+    	.fas, .far {
 		  font-size:3rem;
+		  text-align: center;
 		  transition: transform 0.3s ease-in;
 		  -webkit-transition: transform 0.3s ease-in;
 		}
-		.fas:hover {
+		.fas:hover, .far:hover {
 			transform: scale(1.2);
 			transition: transform 0.3s ease-in;
 			-webkit-transition: transform 0.3s ease-in;
@@ -274,11 +283,7 @@
 		}
 		.grid_item {
 			border:2px solid black;
-			padding: 0.5rem;
-		}
-		.far {
-			font-size:3rem;
-			text-align: center;
+			padding: 0.5rem 1rem;
 		}
     </style>
   </head>

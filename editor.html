@@ -457,9 +457,10 @@
 			    });
 			    canvas.on('mouse:up', function(e) {
 			      if ( new Date().getTime() >= ( start + longpress )  ) {
-			           alert('long press!');   
+			           console.log('long press!');
+			           deleteSelectedObjectsFromCanvas();   
 			        } else {
-			           alert('short press!');   
+			           console.log('short press!');   
 			        }
 			    });
 		  	})();

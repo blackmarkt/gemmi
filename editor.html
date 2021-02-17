@@ -11,6 +11,7 @@
         <meta name="format-detection" content="telephone=no">
 	<title>Gemmi</title>
 	<link rel="shortcut icon" href="static/logo/gemmi.ico">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
 	<link rel='stylesheet' href='static/stylesheets/style.css' />
@@ -38,8 +39,37 @@
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
     	}
-    	.canvas_container {
+    	.canvas__toolbar__container {
     		position: absolute;
+    		top: 10%;
+    		left: 0;
+    		right: 0;
+    		margin: 0 auto;
+    		text-align: center;
+			text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+			height: 50%;
+			width: 50%;
+			min-width: 310px;
+			min-height: 300px;
+			max-width: 700px;
+    		max-height: 500px;
+    	}
+    	.toolbar__canvas {
+    		display: inline-block;
+    		width: 8%;
+    		height: 500px;
+    		background-color: white;
+			text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+			z-index:20;
+			border-radius:10px;
+			box-shadow: 0px 20px 40px rgb(0,0,0,0.3);
+			vertical-align: bottom
+    	}
+    	.canvas_container {
+    		display: inline-block;
+    		width: 90%;
+    		height: 100%;
+    		/*position: absolute;
     		top: 10%;
     		left: 0;
     		right: 0;
@@ -51,8 +81,11 @@
 			min-width: 260px;
 			min-height: 300px;
 			max-width: 600px;
-    		max-height: 500px;
+    		max-height: 500px;*/
     	}
+    	.fa-palette {
+		  font-size:2rem
+		}
     	#c1 {
     		border-radius: 10px;
     		filter: drop-shadow(0 4px 8px rgb(255, 255,255, 0.4));
@@ -170,14 +203,19 @@
 	</div>
 	<div class="editor_container">
 		<h1>Design Your Crypto Coin</h1>
-		<div class="canvas_container">
-		   <canvas id="c1" width="600" height="500"></canvas>
-		   <div class="background_toggle_switch_container">
-			  <div id="toggle" class="toggle">
-			    <input type="checkbox" class="check">
-			      <div id="lightSwitch" class="switch lightSwitch"></div>
-			      <div class="track lightTrack"></div>
-			  </div>
+		<div class="canvas__toolbar__container">
+			<div class="toolbar__canvas">
+				<i class="fas fa-palette"></i>
+			</div>
+			<div class="canvas_container">
+			   <canvas id="c1" width="600" height="500"></canvas>
+			   <div class="background_toggle_switch_container">
+				  <div id="toggle" class="toggle">
+				    <input type="checkbox" class="check">
+				      <div id="lightSwitch" class="switch lightSwitch"></div>
+				      <div class="track lightTrack"></div>
+				  </div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -284,6 +322,7 @@
 			var canvasId = $('#c1');
 			canvasId.attr('width', $('.canvas_container').width() ); //max width
 			canvasId.attr('height', $('.canvas_container').height() ); //max height
+			$('.toolbar__canvas').css('height', $('.canvas_container').height() );
 		}
 
 		var toggle = document.getElementById('toggle');

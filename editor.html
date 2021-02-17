@@ -273,8 +273,8 @@
 			border-radius:10px;
 		}
 		.grid_item {
-			border:3px solid black;
-			padding: 0.2rem 0.5rem;
+			border:2px solid black;
+			padding: 0.5rem;
 		}
 		.far {
 			font-size:3rem;
@@ -316,9 +316,9 @@
 				<script>
 					$('#btn_shapes').click(function() {
 						if ($('.shape_selection_container').css('display') === 'none') {
-							$('.shape_selection_container').fadeIn().toggleClass('selection_visible')
+							$('.shape_selection_container').fadeIn().addClass('selection_visible')
 						} else {
-							$('.shape_selection_container').toggleClass('selection_visible').delay(500).fadeOut();
+							$('.shape_selection_container').removeClass('selection_visible').delay(300).fadeOut();
 						}
 					});
 				</script>

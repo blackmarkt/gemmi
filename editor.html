@@ -292,11 +292,11 @@
 		function backgroundToggle() {
 			if (toggleState === false) {
 				$('#c1').addClass('off');
-				circle.set("shadow", "0px 5px 10px rgb(255,255,0, 0.7)");
+				circle.set("shadow", shadowBlack);
 				toggleState = true
 			} else {
 				$('#c1').removeClass('off');
-				circle.set("shadow", "0px 5px 10px rgb(255,255,255, 0.7)");
+				circle.set("shadow", shadowYellow);
 				toggleState = false
 			}
 			// $('#c1').css({'background-color':'black'});

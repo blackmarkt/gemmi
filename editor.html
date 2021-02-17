@@ -82,6 +82,7 @@
     		background-color: transparent;
 			text-shadow: 0 4px 8px rgba(0,0,0,0.7);
 			z-index:20;
+			margin-top:1rem;
 			/*border-radius:10px;*/
 			/*box-shadow: 0px 20px 40px rgb(0,0,0,0.3);*/
 			vertical-align: bottom
@@ -367,8 +368,10 @@
 		var resizeCanvas = function() {
 			var canvasId = $('#c1');
 			canvasId.attr('width', $('.canvas_container').width() ); //max width
-			canvasId.attr('height', $('.canvas_container').height() ); //max height
-			$('.toolbar__canvas').css('height', $('.canvas_container').height() );
+			if ($('.canvas_container').height() < 500) {
+				canvasId.attr('height', $('.canvas_container').height() ); //max height
+			}
+			$('.toolbar__canvas').css('width', $('.canvas_container').width() );
 		}
 
 		var toggle = document.getElementById('toggle');

@@ -443,6 +443,26 @@
 					height1=obj.height;
 				}
 			});
+			(function() {
+			   var longpress = 500;
+			    // holds the start time
+			   var start;
+			   canvas.on('mouse:down', function(e) {
+			      start = new Date().getTime();
+			      console.log('mouse DOWN')
+			    });
+			    canvas.on('mouse:leave', function(e) {
+			      start = 0;
+			      console.log('mouse DOWN')
+			    });
+			    canvas.on('mouse:up', function(e) {
+			      if ( new Date().getTime() >= ( start + longpress )  ) {
+			           alert('long press!');   
+			        } else {
+			           alert('short press!');   
+			        }
+			    });
+		  	})();
 		});
 
 		var createCircle = function() {
@@ -556,30 +576,6 @@
 			toggle.classList.toggle('toggle-border');
 		}
 		toggle.onclick = backgroundToggle;
-
-		(function() { 
-		    // how many milliseconds is a long press?
-		    var longpress = 500;
-		    // holds the start time
-		    var start;
-
-		    $('#c1').on( 'mousedown', function( e ) {
-		        start = new Date().getTime();
-		    } );
-
-		    $('#c1').on( 'mouseleave', function( e ) {
-		        start = 0;
-		    } );
-
-		    $('#c1').on( 'mouseup', function( e ) {
-		        if ( new Date().getTime() >= ( start + longpress )  ) {
-		           alert('long press!');   
-		        } else {
-		           alert('short press!');   
-		        }
-		    } );
-
-		}());
 
 		function deleteSelectedObjectsFromCanvas(){
 		    var selection = canvas.getActiveObject();

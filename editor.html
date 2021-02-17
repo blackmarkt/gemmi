@@ -328,7 +328,8 @@
 					});
 
 					$('#shape_circle').click(function() {
-						createCircle()
+						createCircle();
+						$('.shape_selection_container').removeClass('selection_visible').delay(300).fadeOut();
 					});
 				</script>
 				<div id="btn_color_palette" class="btn_toolbar">
@@ -391,7 +392,7 @@
 				shadow: shadowBlack
 			});
 			canvas.add(circle);
-			checkScale();
+			checkScale(circle);
 			canvas.centerObject(circle);
 			canvas.renderAll();
 			// Keep Object inside Container
@@ -445,7 +446,7 @@
 		});
 
 		var createCircle = function() {
-			newCirlce = new fabric.Circle({ 
+			newCircle = new fabric.Circle({ 
 				radius: 100, 
 				fill: '#FFD700',
 				strokeWidth: 20,
@@ -454,9 +455,9 @@
 				top: 150,
 				shadow: shadowBlack
 			});
-			canvas.add(newCirlce);
-			checkScale();
-			canvas.centerObject(newCirlce);
+			canvas.add(newCircle);
+			checkScale(newCircle);
+			canvas.centerObject(newCircle);
 			canvas.renderAll();
 		}
 
@@ -466,11 +467,11 @@
 		// })
 
 		var ratio = 0.3
-		function checkScale(e) {
+		function checkScale(shape) {
 			var canWidth = $('#c1').width();
 			var canHeight = $('#c1').height();
 			var adjCircle = Math.floor(canHeight * ratio);
-			var adjStroke = Math.floor(circle.strokeWidth * ratio);
+			var adjStroke = Math.floor(shape.strokeWidth * ratio);
 			circle.set("radius", adjCircle);
 			circle.set("strokeWidth", adjStroke);
 			console.log(ratio, canWidth, canHeight, adjCircle);
@@ -562,15 +563,15 @@
 		    // holds the start time
 		    var start;
 
-		    jQuery( "#pressme" ).on( 'mousedown', function( e ) {
+		    $('#c1').on( 'mousedown', function( e ) {
 		        start = new Date().getTime();
 		    } );
 
-		    jQuery( "#pressme" ).on( 'mouseleave', function( e ) {
+		    $('#c1').on( 'mouseleave', function( e ) {
 		        start = 0;
 		    } );
 
-		    jQuery( "#pressme" ).on( 'mouseup', function( e ) {
+		    $('#c1').on( 'mouseup', function( e ) {
 		        if ( new Date().getTime() >= ( start + longpress )  ) {
 		           alert('long press!');   
 		        } else {

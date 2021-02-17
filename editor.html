@@ -289,14 +289,33 @@
 		var lightSwitch = document.getElementById('lightSwitch');
 		var toggleState = false;
 
+		var shadowify = function (colorCode) {
+		    var obj = canvas.getActiveObject();
+		    if (!obj) return;
+
+		    if (obj.shadow) {
+		        obj.shadow = null;
+		    } else {
+		        obj.setShadow({
+		            color: colorCode,
+		            blur: 50,
+		            // offsetX: 10,
+		            // offsetY: 10
+		        });
+		    }
+		    canvas.renderAll();
+		};
+
 		function backgroundToggle() {
 			if (toggleState === false) {
 				$('#c1').addClass('off');
-				circle.set("shadow", shadowBlack);
+				shadowify("#000000");
+				// circle.set("shadow", 'shadowBlack');
 				toggleState = true
 			} else {
 				$('#c1').removeClass('off');
-				circle.set("shadow", shadowYellow);
+				shadowify("#FFFF00");
+				// circle.set("shadow", 'shadowYellow');
 				toggleState = false
 			}
 			// $('#c1').css({'background-color':'black'});

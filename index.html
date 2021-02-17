@@ -21,10 +21,15 @@
   </head>
   <body>
   	<div class="header">
-		<div class="logo_container">
+		<div class="logo_container" onclick="goHomePage()">
 			<div id="logo"></div>
 			<div class="co_name">Gemmi</div>
 		</div>
+		<script>
+			var goHomePage = function(e) {
+				window.location.href = "https://blackmarkt.github.io/gemmi/index.html";
+			}
+		</script>
 		<div class="header_right">
 			<div class="contact_career_txt">Careers</div>
 			<div class="contact_career_txt">Contact</div>
@@ -57,12 +62,17 @@
 			</div>
 		</div>
 		<div class="btn_container access animate__animated animate__rubberBand animate__delay-1s">
-			<a class="lnk_early_access">
+			<a class="lnk_early_access" onclick="getEarlyAccess()">
 				<div class="module_border_wrap">
 					<div class="btn_early_access">Get Early Access &#10140;</div>
 				</div>
 			</a>
 		</div>
+		<script>
+			var getEarlyAccess = function(e) {
+				window.location.href = "https://blackmarkt.github.io/gemmi/editor.html";
+			}
+		</script>
 	</div>
 	<div class="dark_bckgrnd_container">
 		<div class="title-container">

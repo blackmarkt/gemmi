@@ -592,8 +592,8 @@
 			var canHeight = $('#c1').height();
 			var adjCircle = Math.floor(canHeight * ratio);
 			var adjStroke = Math.floor(shape.strokeWidth * ratio);
-			circle.set("radius", adjCircle);
-			circle.set("strokeWidth", adjStroke);
+			shape.set("radius", adjCircle);
+			shape.set("strokeWidth", adjStroke);
 			console.log(ratio, canWidth, canHeight, adjCircle);
 		}
 
@@ -679,6 +679,7 @@
 
 		function applyGradient(color1='red', color2='blue') {
 			var selection = canvas.getActiveObject();
+			console.log(selection);
 			var gradient = new fabric.Gradient({
 			    type: 'linear',
 			    gradientUnits: 'percentage',
@@ -688,7 +689,7 @@
 			      { offset: 1, color: color2}
 			    ]
 		  });
-		  selection.set('fill', gradient);
+		  circle.set('fill', gradient);
 		} 
 
 		function deleteSelectedObjectsFromCanvas(){

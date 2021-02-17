@@ -285,6 +285,34 @@
 			border:2px solid black;
 			padding: 0.5rem 1rem;
 		}
+		.obj_delete_pop {
+			display: none;
+			position: absolute;
+			top: 20%;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			padding: 1rem 0.5rem;
+			background: white;
+			height: fit-content;
+			width: fit-content;
+			text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+			z-index:30;
+		}
+		.btn_container.obj_delete {
+			width: 97%;
+			text-align: center;
+		}
+		.btn_obj_delete {
+			font-size: 1.7rem;
+			padding: 0.3rem 0.6rem;
+		}
+		.btn_obj_delete.no {
+			margin-right:0.5rem;
+		}
+		.btn_obj_delete.yes {
+			margin-left:0.5rem;
+		}
     </style>
   </head>
   <body>
@@ -301,6 +329,23 @@
 	<div class="editor_container">
 		<h1>Design Your Crypto Coin</h1>
 		<div class="canvas__toolbar__container">
+			<div class="obj_delete_pop">
+				<h2>Are you sure your want to delete?</h2>
+				<div class="btn-container obj_delete">
+					<div id="btn_delete_no" class="btn_obj_delete no">No</div>
+					<div id="btn_delete_yes" class="btn_obj_delete yes">Yes</div>
+				</div>
+			</div>
+			<script>
+				$('#btn_delete_no').click(fuction() {
+					$('.obj_delete_pop').fadeOut('slow');
+				});
+
+				$('#btn_delete_yes').click(fuction() {
+					deleteSelectedObjectsFromCanvas();
+					$('.obj_delete_pop').fadeOut('slow');
+				});
+			</script>
 			<div class="canvas_container">
 			   <canvas id="c1" width="600" height="500"></canvas>
 			</div>
@@ -458,7 +503,8 @@
 			    canvas.on('mouse:up', function(e) {
 			      if ( new Date().getTime() >= ( start + longpress )  ) {
 			           console.log('long press!');
-			           deleteSelectedObjectsFromCanvas();   
+			           $('.obj_delete_pop').fadeIn('slow');
+			           // deleteSelectedObjectsFromCanvas();   
 			        } else {
 			           console.log('short press!');   
 			        }
@@ -577,6 +623,10 @@
 			toggle.classList.toggle('toggle-border');
 		}
 		toggle.onclick = backgroundToggle;
+
+		function deleteItemPopup() {
+
+		}
 
 		function deleteSelectedObjectsFromCanvas(){
 		    var selection = canvas.getActiveObject();

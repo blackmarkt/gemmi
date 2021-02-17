@@ -187,13 +187,28 @@
 		$(document).ready(function () {
 			resizeCanvas();
 			canvas = new fabric.Canvas('c1');
+			var shadowYellow = new fabric.Shadow({ 
+			    color: 'yellow', 
+			    blur: 50,
+			    // offsetX: 10,
+			    // offsetY: 10,
+			    // opacity: 0.5,
+			});
+			var shadowBlack = new fabric.Shadow({ 
+			    color: 'black', 
+			    blur: 20,
+			    // offsetX: 10,
+			    // offsetY: 10,
+			    opacity: 0.7,
+			});
 			circle = new fabric.Circle({ 
 				radius: 100, 
 				fill: '#FFD700',
 				strokeWidth: 20,
 				stroke: "rgb(218,165,32)",
 				opacity: 0.7,
-				top: 150
+				top: 150,
+				shadow: shadowBlack
 			});
 			canvas.add(circle);
 			checkScale();
@@ -277,9 +292,11 @@
 		function backgroundToggle() {
 			if (toggleState === false) {
 				$('#c1').addClass('off');
+				circle.set("shadow", "shadowYellow");
 				toggleState = true
 			} else {
 				$('#c1').removeClass('off');
+				circle.set("shadow", "shadowBlack");
 				toggleState = false
 			}
 			// $('#c1').css({'background-color':'black'});

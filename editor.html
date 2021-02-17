@@ -678,8 +678,8 @@
 		toggle.onclick = backgroundToggle;
 
 		function applyGradient(color1='red', color2='blue') {
-			var selection = canvas.getActiveObject();
-			console.log(selection);
+			// var selection = canvas.getActiveObject();
+			// console.log(selection);
 			var gradient = new fabric.Gradient({
 			    type: 'linear',
 			    gradientUnits: 'percentage',
@@ -689,7 +689,8 @@
 			      { offset: 1, color: color2}
 			    ]
 		  });
-		  circle.set('fill', gradient);
+		  canvas.getActiveObject().set('fill', gradient);
+		  canvas.renderAll();
 		} 
 
 		function deleteSelectedObjectsFromCanvas(){

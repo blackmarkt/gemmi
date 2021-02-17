@@ -52,7 +52,13 @@
 			}
 			.grid_item {
 				border:2px solid black!important;
-				padding: 0.2rem 5rem!important;
+				padding: 0.2rem 1rem!important;
+			}
+			.btn_obj_delete {
+				font-size: 1.2rem!important;
+			}
+			.obj_delete_pop_container h2 {
+				font-size:1rem!important;
 			}
     	}
     	.editor_container {
@@ -300,6 +306,15 @@
 			z-index:30;
 			border-radius: 10px;
 		}
+		.obj_delete_pop_container h2 {
+			font-size:1rem;
+			background: -webkit-linear-gradient(to right, magenta , fuchsia, violet, black);
+			background: -o-linear-gradient(to right, magenta , fuchsia, violet, black);
+			background: -moz-linear-gradient(to right, magenta , fuchsia, violet, black);
+			background: linear-gradient(to right, magenta , fuchsia, violet, black);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 		.btn_container.obj_delete {
 			width: 97%;
 			text-align: center;
@@ -495,7 +510,7 @@
 				}
 			});
 			(function() {
-			   var longpress = 500;
+			   var longpress = 1000;
 			    // holds the start time
 			   var start;
 			   canvas.on('mouse:down', function(e) {

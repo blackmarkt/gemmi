@@ -677,7 +677,7 @@
 		}
 		toggle.onclick = backgroundToggle;
 
-		function applyGradient(color1, color2) {
+		function applyGradient(color1='red', color2='blue') {
 			var selection = canvas.getActiveObject();
 			var gradient = new fabric.Gradient({
 			    type: 'linear',

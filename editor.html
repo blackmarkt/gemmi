@@ -276,14 +276,14 @@
 			width: fit-content;
 			height: fit-content;
 			display: none;
-			transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
-			-webkit-transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+			transition: visibility 0.1s ease-in, opacity 0.1s ease-in;
+			-webkit-transition: visibility 0.1s ease-in, opacity 0.1s ease-in;
 		}
 		.selection_visible {
 			visibility: visible;
 			opacity:1;
-			transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
-			-webkit-transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+			transition: visibility 0.1s ease-in, opacity 0.1s ease-in;
+			-webkit-transition: visibility 0.1s ease-in, opacity 0.1s ease-in;
 		}
 		.shape_selection_grid {
 			display: grid;
@@ -369,12 +369,12 @@
 			</div>
 			<script>
 				$('#btn_delete_no').click(function() {
-					$('.obj_delete_pop_container').fadeOut('slow');
+					$('.obj_delete_pop_container').fadeOut();
 				});
 
 				$('#btn_delete_yes').click(function() {
 					deleteSelectedObjectsFromCanvas();
-					$('.obj_delete_pop_container').fadeOut('slow');
+					$('.obj_delete_pop_container').fadeOut();
 				});
 			</script>
 			<div class="canvas_container">

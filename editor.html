@@ -425,6 +425,19 @@
 				<div id="btn_signature" class="btn_toolbar">
 					<i class="fas fa-pen-fancy"></i>
 				</div>
+				<script>
+					var drawingMode = false;
+					
+					$('#btn_signature').click(function() {
+						if (drawingMode === false) {
+							drawingModeOn();
+							drawingMode = true;
+						} else {
+							drawingModeOff();
+							drawingMode = false
+						}
+					})
+				</script>
 				<div id="btn_magic" class="btn_toolbar">
 					<i class="fas fa-magic"></i>
 				</div>
@@ -692,6 +705,17 @@
 		  });
 		  canvas.getActiveObject().set('fill', gradient);
 		  canvas.renderAll();
+		}
+
+		function drawingModeOn() {
+			canvas.isDrawingMode= true;
+		    canvas.freeDrawingBrush.color = "purple";
+		    canvas.freeDrawingBrush.width = 10;
+		    canvas.renderAll();
+		}
+
+		function drawingModeOff() {
+			canvas.isDrawingMode = false
 		}
 
 		function applyFillColor(color) {

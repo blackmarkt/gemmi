@@ -414,8 +414,9 @@
 				</div>
 				<script>
 					$('#color').on('change', ()=>{
-					  canvas.setBackgroundColor($('input#color').val())
-					  canvas.renderAll();
+						applyFillColor($('input#color').val())
+					  // canvas.setBackgroundColor($('input#color').val())
+					  // canvas.renderAll();
 					})
 				</script>
 				<div id="btn_images" class="btn_toolbar">
@@ -691,6 +692,11 @@
 		  });
 		  canvas.getActiveObject().set('fill', gradient);
 		  canvas.renderAll();
+		}
+
+		function applyFillColor(color) {
+			canvas.getActiveObject().set('fill', color);
+			canvas.renderAll();
 		} 
 
 		function deleteSelectedObjectsFromCanvas(){

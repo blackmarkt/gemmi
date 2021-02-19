@@ -848,9 +848,12 @@
 
 		function createNewCanvas(e) {
 			canvas.clear();
-			// setTimeout(function() {
-			// 	newCanvas();
-			// }, 500);
+			setTimeout(function() {
+				canvas.add(circle);
+				checkScale(circle);
+				canvas.centerObject(circle);
+				canvas.renderAll();
+			}, 400);
 		}
 
 		function deleteSelectedObjectsFromCanvas(){

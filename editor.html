@@ -434,6 +434,7 @@
 				<script>
 					$('#btn_images').click(function() {
 						$('.fa-images').addClass('tool_on');
+						uploadImage()
 					})
 				</script>
 				<div id="btn_signature" class="btn_toolbar">
@@ -738,6 +739,30 @@
 			canvas.getActiveObject().set('fill', color);
 			canvas.getActiveObject().set('color', gradient);
 			canvas.renderAll();
+		}
+
+		function uploadImage(e) {
+		   var fileType = e.target.files[0].type;
+		   var url = URL.createObjectURL(e.target.files[0]);
+		   var canWidth = $('#c1').width();
+		   var canHeight = $('#c1').height();
+
+		   if (fileType === 'image/png') { //check if png
+		      fabric.Image.fromURL(url, function(img) {
+		         img.set({
+		            width: canWidth * ratio,
+		            height: canWidth
+		         });
+		         canvas.add(img);
+		      });
+		   } else if (fileType === 'image/svg+xml') { //check if svg
+		      fabric.loadSVGFromURL(url, function(objects, options) {
+		         var svg = fabric.util.groupSVGElements(objects, options);
+		         svg.scaleToWidth(canWidth);
+		         svg.scaleToHeight(canWidth);
+		         canvas.add(svg);
+		      });
+		   }
 		} 
 
 		function deleteSelectedObjectsFromCanvas(){

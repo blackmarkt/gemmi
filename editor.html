@@ -751,15 +751,15 @@
 		      fabric.Image.fromURL(url, function(img) {
 		         img.set({
 		            width: canWidth * ratio,
-		            height: canWidth
+		            height: canWidth * ratio
 		         });
 		         canvas.add(img);
 		      });
 		   } else if (fileType === 'image/svg+xml') { //check if svg
 		      fabric.loadSVGFromURL(url, function(objects, options) {
 		         var svg = fabric.util.groupSVGElements(objects, options);
-		         svg.scaleToWidth(canWidth);
-		         svg.scaleToHeight(canWidth);
+		         svg.scaleToWidth(canWidth * ratio);
+		         svg.scaleToHeight(canWidth * ratio);
 		         canvas.add(svg);
 		      });
 		   }

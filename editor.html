@@ -798,8 +798,8 @@
 		}
 
 	   function saveCoin(e) {
-		   	var canvas = document.getElementById('#c1');
-		   	var dataURL = canvas.toDataURL("image/png");
+		   	var canvasReal = document.getElementById('c1');
+		   	var dataURL = canvasReal.toDataURL("image/png");
 
 		    downloadImage(dataURL, 'my-canvas.png');
 		    // this.href = canvas.toDataURL({

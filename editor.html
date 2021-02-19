@@ -429,10 +429,11 @@
 					})
 				</script>
 				<div id="btn_images" class="btn_toolbar">
+					<input id="image_upload" type="file" style="background:transparent">
 					<i class="fas fa-images"></i>
 				</div>
 				<script>
-					$('#btn_images').click(function() {
+					$('#image_upload').click(function() {
 						$('.fa-images').addClass('tool_on');
 						uploadImage()
 					})

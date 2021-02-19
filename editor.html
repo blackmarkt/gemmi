@@ -252,7 +252,7 @@
 		  filter: drop-shadow(0px 5px 10px rgb(255,255,255, 0.7));
 		  box-shadow: inset 0px 0px 10px 20px rgb(0, 0, 0, 0.1);
 		}
-		input[type="color"] {
+		input[type="color"], input[type="file"] {
 			position: absolute;
 			opacity:0;
 			height: 3rem;
@@ -260,7 +260,7 @@
 			background: transparent;
 			cursor: pointer
 		}
-		input#color:hover .fa-palette {
+		input#color:hover .fa-palette, input#image_upload:hover .fa-images {
 			transform: scale(1.2);
 			transition: transform 0.3s ease-in;
 			-webkit-transition: transform 0.3s ease-in;

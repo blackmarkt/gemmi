@@ -750,11 +750,11 @@
 		   if (fileType === 'image/png') { //check if png
 		      fabric.Image.fromURL(url, function(img) {
 		         img.set({
-		            width: 180,
-            		height: 180
+		            left: 100,
+            		top: 100
 		         });
 		         img.scaleToHeight(180);
-				  img.scaleToWidth(180);
+				 img.scaleToWidth(180);
 		         canvas.add(img);
 		      });
 		   } else if (fileType === 'image/svg+xml') { //check if svg

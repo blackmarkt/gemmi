@@ -498,7 +498,7 @@
 			   </div>
 			</div>
 			<div class="save_signature_container">
-				<div id="btn_trash_sig" class="btn_trash" onclick="newCanvas()">
+				<div id="btn_trash_sig" class="btn_trash" onclick="createNewCanvas()">
 					<i class="fas fa-trash-alt"></i>
 				</div>
 				<div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
@@ -846,10 +846,10 @@
 		    a.click();
 		}
 
-		function newCanvas(e) {
+		function createNewCanvas(e) {
 			canvas.clear();
 			setTimeout(function() {
-				canvas = new fabric.Canvas('c1');
+				newCanvas();
 			}, 500);
 		}
 

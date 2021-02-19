@@ -750,16 +750,16 @@
 		   if (fileType === 'image/png') { //check if png
 		      fabric.Image.fromURL(url, function(img) {
 		         img.set({
-		            width: canWidth * ratio,
-		            height: canWidth * ratio
+		            width: 180,
+            height: 180
 		         });
 		         canvas.add(img);
 		      });
 		   } else if (fileType === 'image/svg+xml') { //check if svg
 		      fabric.loadSVGFromURL(url, function(objects, options) {
 		         var svg = fabric.util.groupSVGElements(objects, options);
-		         svg.scaleToWidth(canWidth * ratio);
-		         svg.scaleToHeight(canWidth * ratio);
+		         svg.scaleToWidth(180);
+		         svg.scaleToHeight(180);
 		         canvas.add(svg);
 		      });
 		   }

@@ -43,6 +43,7 @@
 				font-size:2rem!important;
 			}
 			.fa-trash-alt, .fa-share-square {
+				margin: 0.5rem 0!important;
 				font-size:2.4rem!important;
 			}
 			.toggle {
@@ -151,12 +152,12 @@
 			-webkit-transition: transform 0.3s ease-in;
 		}
 		.fa-trash-alt {
-			margin: 0.5rem 0;
+			margin: 1rem 0;
 			color: red;
 			font-size:4rem;
 		}
 		.fa-share-square {
-			margin: 0.5rem 0;
+			margin: 1rem 0;
 			color:magenta;
 			font-size:4rem;
 		}
@@ -358,7 +359,7 @@
 		.save_signature_container {
 			position: absolute;
 			top:0;
-			right:-5%;
+			right:0;
 			background: transparent;
 			height: 100%;
 			width: 10%;
@@ -497,7 +498,7 @@
 			   </div>
 			</div>
 			<div class="save_signature_container">
-				<div id="btn_trash_sig" class="btn_trash">
+				<div id="btn_trash_sig" class="btn_trash" onclick="newCanvas()">
 					<i class="fas fa-trash-alt"></i>
 				</div>
 				<div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
@@ -802,16 +803,6 @@
 		   	var dataURL = canvasReal.toDataURL("image/png");
 
 		    downloadImage(dataURL, 'my-canvas.png');
-		    // this.href = canvas.toDataURL({
-		    //     format: 'png',
-		    //     quality: 0.8,
-		    //     left: 0,
-      //           top: 0,
-      //           width: canvas.width ,
-      //           height: canvas.height ,
-		    // });
-		    // window.location.href=image;
-		    // this.download = 'canvas.png'
 		}
 
 		function downloadImage(data, filename = 'untitled.png') {
@@ -820,6 +811,13 @@
 		    a.download = filename;
 		    document.body.appendChild(a);
 		    a.click();
+		}
+
+		function newCanvas(e) {
+			canvas.clear();
+			setTimeout(function() {
+				canvas = new fabric.Canvas('c1');
+			}, 500);
 		}
 
 		function deleteSelectedObjectsFromCanvas(){

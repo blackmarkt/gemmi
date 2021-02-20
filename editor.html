@@ -29,7 +29,7 @@
     		.canvas_container {
     			margin-left:revert!important;
     		}
-    		.toolbar__canvas {
+    		.toolbar__canvas, .panel_objects_container {
     			margin-top:0.3rem!important;
     		}
     		.btn_toolbar {
@@ -70,9 +70,9 @@
 			.save_signature_container {
 				right:2%!important;
 			}
-			.panel_objects_container {
+			/*.panel_objects_container, {
 				left: 2%!important;
-			}
+			}*/
 			.btn_obj {
 				font-size: 1.2rem!important;
 				/*margin: 0 0 0.5rem!important;*/
@@ -108,7 +108,7 @@
 			max-width: 700px;
     		max-height: 600px;
     	}
-    	.toolbar__canvas {
+    	.toolbar__canvas, .panel_objects_container {
     		display: inline-block;
     		width: 100%;
     		height: 13%;
@@ -384,7 +384,7 @@
 		.btn_obj_delete.yes {
 			margin-left:0.5rem;
 		}
-		.save_signature_container, .panel_objects_container {
+		.save_signature_container {
 			position: absolute;
 			top:0;
 			right:-1%;
@@ -393,9 +393,9 @@
 			width: 10%;
 			text-align: center
 		}
-		.panel_objects_container {
+		/*.panel_objects_container {
 			left: -1%;
-		}
+		}*/
 		.btn_obj {
 			font-size: 5rem;
 			color:purple;
@@ -440,9 +440,6 @@
 					$('.obj_delete_pop_container').fadeOut();
 				});
 			</script>
-			<div class="canvas_container">
-			   <canvas id="c1" width="600" height="500"></canvas>
-			</div>
 			<div class="toolbar__canvas">
 				<div id="btn_shapes" class="btn_toolbar shapes">
 					<i class="fas fa-shapes"></i>
@@ -534,7 +531,10 @@
 				  </div>
 			   </div>
 			</div>
-			<div class="save_signature_container">
+			<div class="canvas_container">
+			   <canvas id="c1" width="600" height="500"></canvas>
+			</div>
+			<!-- <div class="save_signature_container">
 				<div id="btn_trash_sig" class="btn_trash" onclick="createNewCanvas()">
 					<i class="fas fa-dumpster-fire"></i>
 				</div>
@@ -544,15 +544,22 @@
 				<div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
 					<i class="fas fa-share-square"></i>
 				</div>
-			</div>
+			</div> -->
 			<div class="panel_objects_container">
-				<div id="btn_obj_pos_fwd" class="btn_obj" onclick="bringForward()">
+				<div id="btn_obj_pos_fwd" class="btn_toolbar" onclick="bringForward()">
 					<i class="fas fa-layer-group forward"></i>
-					<!-- <span class="btn_obj icon">&#10063;</span> -->
 				</div>
-				<div id="btn_obj_pos_back" class="btn_obj" onclick="sendBackward()">
+				<div id="btn_obj_pos_back" class="btn_toolbar" onclick="sendBackward()">
 					<i class="fas fa-layer-group backward"></i>
-					<!-- <span class="btn_obj icon">&#10064;</span> -->
+				</div>
+				<div id="btn_trash_sig" class="btn_toolbar" onclick="createNewCanvas()">
+					<i class="fas fa-dumpster-fire"></i>
+				</div>
+				<div id="btn_trash_sig" class="btn_toolbar" onclick="launchDeletePopup()">
+					<i class="fas fa-trash-alt"></i>
+				</div>
+				<div id="btn_save_sig" class="btn_toolbar signature" onclick="saveCoin()">
+					<i class="fas fa-share-square"></i>
 				</div>
 				<!-- <div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
 					<i class="fas fa-share-square"></i>
@@ -757,6 +764,7 @@
 				canvasId.attr('height', $('.canvas_container').height() ); //max height
 			}
 			$('.toolbar__canvas').css('width', $('.canvas_container').width() );
+			$('.panel_objects_container').css('width', $('.canvas_container').width() );
 		}
 
 		var toggle = document.getElementById('toggle');

@@ -521,8 +521,11 @@
 				</div>
 			</div>
 			<div class="panel_objects_container">
-				<div id="btn_obj_pos" class="btn_obj" onclick="bringForward()">
+				<div id="btn_obj_pos_fwd" class="btn_obj" onclick="bringForward()">
 					<span class="btn_obj icon">&#10063;</span>
+				</div>
+				<div id="btn_obj_pos_back" class="btn_obj" onclick="sendBackward()">
+					<span class="btn_obj icon">&#10064;</span>
 				</div>
 				<!-- <div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
 					<i class="fas fa-share-square"></i>
@@ -536,7 +539,9 @@
 
 		function newCanvas(e) {
 			resizeCanvas();
-			canvas = new fabric.Canvas('c1');
+			canvas = new fabric.Canvas('c1', {
+				preserveObjectStacking: true
+			});
 			shadowYellow = new fabric.Shadow({ 
 			    color: 'yellow', 
 			    blur: 50,
@@ -882,7 +887,13 @@
 		function bringForward(e) {
 			var selection = canvas.getActiveObject();
 			canvas.bringToFront(selection);
-			canvas.requestRenderAll();
+			// canvas.requestRenderAll();
+		}
+
+		function sendBackward(e) {
+			var selection = canvas.getActiveObject();
+			canvas.sendBackwards(selection);
+			// canvas.requestRenderAll();
 		}
 
 		function deleteSelectedObjectsFromCanvas(){

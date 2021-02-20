@@ -42,7 +42,7 @@
     		.fas, .far {
 				font-size:2rem!important;
 			}
-			.fa-trash-alt, .fa-share-square, .fa-layer-group {
+			.fa-trash-alt, .fa-share-square, .fa-layer-group, .fa-dumpster-fire {
 				margin: 0.5rem 0!important;
 				font-size:2.4rem!important;
 			}
@@ -162,6 +162,11 @@
 			-webkit-transition: transform 0.3s ease-in;
 		}
 		.fa-trash-alt {
+			margin: 1rem 0;
+			color: yellow;
+			font-size:4rem;
+		}
+		.fa-dumpster-fire {
 			margin: 1rem 0;
 			color: red;
 			font-size:4rem;
@@ -531,6 +536,9 @@
 			</div>
 			<div class="save_signature_container">
 				<div id="btn_trash_sig" class="btn_trash" onclick="createNewCanvas()">
+					<i class="fas fa-dumpster-fire"></i>
+				</div>
+				<div id="btn_trash_sig" class="btn_trash" onclick="launchDeletePopup()">
 					<i class="fas fa-trash-alt"></i>
 				</div>
 				<div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
@@ -901,6 +909,11 @@
 				canvas.centerObject(circle);
 				canvas.renderAll();
 			}, 400);
+		}
+
+		function launchDeletePopup(e) {
+			var selection = canvas.getActiveObject();
+			$('.obj_delete_pop_container').fadeIn('slow');
 		}
 
 		function bringForward(e) {

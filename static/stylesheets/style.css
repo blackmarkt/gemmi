@@ -896,7 +896,7 @@ body {
   font-size: 3rem;
   color: white;
   text-shadow:0 0 5px #fff,
-        0 0 10px #fff, 
+        0 0 10px yellow, 
         0 0 20px yellow, 
         0 0 30px orange,
         0 0 50px red;

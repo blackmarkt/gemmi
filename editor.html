@@ -42,7 +42,7 @@
     		.fas, .far {
 				font-size:2rem!important;
 			}
-			.fa-trash-alt, .fa-share-square {
+			.fa-trash-alt, .fa-share-square, .fa-layer-group {
 				margin: 0.5rem 0!important;
 				font-size:2.4rem!important;
 			}
@@ -166,6 +166,16 @@
 		.fa-share-square {
 			margin: 1rem 0;
 			color:magenta;
+			font-size:4rem;
+		}
+		.forward {
+			margin: 0.6rem 0;
+			color: lime;
+			font-size:4rem;
+		}
+		.backward {
+			margin: 0.6rem 0;
+			color:red;
 			font-size:4rem;
 		}
 		.tool_on {
@@ -366,7 +376,7 @@
 		.save_signature_container, .panel_objects_container {
 			position: absolute;
 			top:0;
-			right:0;
+			right:0%;
 			background: transparent;
 			height: 100%;
 			width: 10%;
@@ -377,6 +387,7 @@
 		}
 		.btn_obj {
 			font-size: 5rem;
+			color:purple;
 			/*margin: 0 0 1rem;*/
 			cursor: pointer;
 		}
@@ -522,10 +533,12 @@
 			</div>
 			<div class="panel_objects_container">
 				<div id="btn_obj_pos_fwd" class="btn_obj" onclick="bringForward()">
-					<span class="btn_obj icon">&#10063;</span>
+					<i class="fas fa-layer-group forward"></i>
+					<!-- <span class="btn_obj icon">&#10063;</span> -->
 				</div>
 				<div id="btn_obj_pos_back" class="btn_obj" onclick="sendBackward()">
-					<span class="btn_obj icon">&#10064;</span>
+					<i class="fas fa-layer-group backward"></i>
+					<!-- <span class="btn_obj icon">&#10064;</span> -->
 				</div>
 				<!-- <div id="btn_save_sig" class="btn_save signature" onclick="saveCoin()">
 					<i class="fas fa-share-square"></i>

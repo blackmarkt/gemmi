@@ -1146,6 +1146,8 @@ body {
 .model_3d {
 	margin: 0 auto;
 	margin-top:4rem;
+	width: 300px;
+	height:300px;
 }
 footer {
 	width: 100%;

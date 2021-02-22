@@ -37,9 +37,27 @@
 	</div>
 	<div class="create_your_coin_container">
 		<h1>Design Your Crypto Coin</h1>
-		<h4>Reward your super fans with a unique token</h4>
-		<h4>Send friends money with your currency</h4>	
-		<div class="loader">
+		<h4>Reward your super fans with a unique gem</h4>
+		<h4>Send friends money with your currency</h4>
+		<div class="video_container">
+	    	<video id="videoHidden2" class="vid_gem" autoplay muted loop>
+		        <source src="static/3d/gem_coin_wh.mp4" type="video/mp4">
+		        <source src="movie.ogg" type="video/ogg">
+		    </video>
+		</div>
+		<div class="btn_container access animate__animated animate__rubberBand animate__delay-1s">
+			<a class="lnk_early_access" onclick="getEarlyAccess()">
+				<div class="module_border_wrap">
+					<div class="btn_early_access">Get Early Access &#10140;</div>
+				</div>
+			</a>
+		</div>
+		<script>
+			var getEarlyAccess = function(e) {
+				window.location.href = "https://blackmarkt.github.io/gemmi/editor.html";
+			}
+		</script>	
+		<!-- <div class="loader">
 			<div class="coin">
 				<div class="oval">
 					<div class="inner-oval"></div>
@@ -73,7 +91,7 @@
 				window.location.href = "https://blackmarkt.github.io/gemmi/editor.html";
 			}
 		</script>
-	</div>
+	</div> -->
 	<div class="dark_bckgrnd_container">
 		<div class="title-container">
 			<h1>Your Digital Signature</h1>
@@ -101,7 +119,7 @@
 	</div>
 	<div class="dark_white_container">
 		<div class="title-send-container">
-		  <h1>Infuse Your Currency with the Unique You</h1>
+		  <h1>Keep Track of Your Coins in a Digital Wallet</h1>
 			<div class="mobile-send-img gif-animated">
 				<img class="img-phone gif-animated" src="static/mobile_images/mobile_create_wh.gif">
 			</div>
@@ -121,7 +139,7 @@
 		</div>
 	</div>
 	<div id="model" class="model_container">
-		<h1>Interactive, 3D, Unique, cCollectible and Available Anywhere</h1>
+		<h1>Interactive, 3D, Unique, Collectible and Available Anywhere</h1>
         <model-viewer class="model_3d" src="static/3d/gem_kelly.glb" alt="Gemmis" auto-rotate="" camera-controls="" background-color="whitesmoke" shadow-intensity="0.4" data-js-focus-visible=""></model-viewer>
     </div>
     <!-- Loads model-viewer for modern browsers -->

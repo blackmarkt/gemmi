@@ -57,6 +57,12 @@
 		font-size: 1rem!important;
 		margin: 0.5rem!important;
 	}
+	.video_container {
+		margin-top: 2rem!important
+	}
+	.vid_gem {
+		width:160px!important;
+	}
 	.dark_bckgrnd_container {
 		margin-top:4.5rem!important;
 		height: 500px!important;
@@ -98,7 +104,7 @@
 		width: 85%!important;
 	}
 	.btn_container.access {
-		margin-top:4.6rem!important;
+		margin-top:2.6rem!important;
 	}
 	.btn_early_access {
 		font-size:1.2rem!important;
@@ -922,7 +928,9 @@ body {
   right: 0;
   margin: 0 auto;
 }
-
+.vid_gem {
+	width:200px;
+}
 #coin {
 /*     display: none; */
   position: absolute;

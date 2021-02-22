@@ -929,7 +929,7 @@ body {
   margin: 0 auto;
 }
 .vid_gem {
-	width:200px;
+	width:260px;
 }
 #coin {
 /*     display: none; */
@@ -1002,7 +1002,7 @@ body {
 
 .title-send-container {
 	margin-top: 5rem;
-	font-family:2.1rem;
+	font-size:2.1rem;
 	font-family: 'Alata', sans-serif;
 	color: black;
 	text-align: center;
@@ -1016,6 +1016,7 @@ body {
 }
 
 .title-send-container h1, .model_container h1 {
+	font-size:2.4rem;
 	margin: 3rem 0;
 }
 
@@ -1028,7 +1029,7 @@ body {
 
 .mobile-send-img {
 	display: inline-block;
-	width: 33%;
+	width: 32%;
 	max-width: 400px;
 	margin: 0 auto;
 	margin-top:1rem;

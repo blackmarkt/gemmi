@@ -39,7 +39,7 @@
 		<h1>Design Your Crypto Coin</h1>
 		<h4>Reward your super fans with a unique gem</h4>
 		<h4>Send friends money with your currency</h4>
-		<div class="video_container">
+		<div id="vid_contain" class="video_container">
 			<div class="vid_mask">
 		    	<video id="videoHidden2" class="vid_gem" autoplay muted loop playsinline preload="none">
 			        <source src="static/3d/gem_coin_wh.mp4" type="video/mp4">
@@ -47,6 +47,32 @@
 			    </video>
 			</div>
 		</div>
+		<script>
+			var vidLoad = false;
+			var e = document.getElementById("vid_contain");
+			e.style.opacity = 0;
+
+			var vid = document.getElementById("videoHidden2");
+			vid.oncanplaythrough = function() {
+				var e = document.getElementById('vid_contain');
+			    fade(e);
+			};
+
+			function fade(element) {
+			    var op = 0;
+			    if (vidLoad === false) {
+			    	var timer = setInterval(function() {
+				        if (op >= 1) clearInterval(timer);
+				        element.style.opacity = op;
+				        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+				        op += op * 0.1 || 0.1;
+				    }, 50);
+				   	vidLoad = true;
+			    } else {
+			    	clearInterval(timer)
+			    }
+			}
+		</script>
 		<div class="btn_container access animate__animated animate__rubberBand animate__delay-1s">
 			<a class="lnk_early_access" onclick="getEarlyAccess()">
 				<div class="module_border_wrap">
